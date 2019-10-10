@@ -82,17 +82,18 @@ var newmaterial = materialcount.map(function(a){
 
 })
 
-
-
-
 document.querySelector("#answer5").innerHTML = `The items with 8 or more materials are ${newmaterial}`
-
-
 
 /* <h4>6. How many items were made by their sellers?</h4>
       <pre id="answer6">Answer 6 Goes Here</pre> */
 
-      var count = items.length;
+      var made = items.filter(function(a){
 
-      document.querySelector("#answer6").innerHTML = `The sellers are selling ${count} items.`
+        return a.who_made == "i_did"
+      })
+
+    var newmade = made.length
+
+      
+      document.querySelector("#answer6").innerHTML = `The sellers are selling ${newmade} items.`
       
