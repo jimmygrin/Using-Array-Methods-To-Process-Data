@@ -20,11 +20,11 @@ var newfiltered = items.filter(function(a) {
 })
 
 var newarr = newfiltered.map(function(a) {
-    return a.listing_id
+    return a.title
 })
 
 
-document.querySelector("#answer2").innerHTML = `The items between $14 and $18 have the list id numbers ${newarr}`
+document.querySelector("#answer2").innerHTML = `The items between $14 and $18 are ${newarr}`
    
 
 
@@ -61,10 +61,10 @@ var wood = items.filter(function(a){
 })
 
 var newwood = wood.map(function(a){
-    return a.listing_id
+    return a.title
 })
 
-document.querySelector("#answer4").innerHTML = `The items made of wood have the following listing id numbers ${newwood}`
+document.querySelector("#answer4").innerHTML = `The items made of wood are ${newwood}`
 
 
 /* <h4>5. Which items are made of eight or more materials? Display the name, number of items and the items it is made of.</h4>
@@ -78,11 +78,23 @@ var materialcount = items.filter(function(a){
 
 var newmaterial = materialcount.map(function(a){
 
-    return a.listing_id
+    return a.title
 
 })
 
-document.querySelector("#answer5").innerHTML = `The items with 8 or more materials are ${newmaterial}`
+var newnumberofitems = materialcount.map(function(a){
+
+    return a.materials.length
+
+})
+
+var newmadeof = materialcount.map(function(a){
+
+    return a.materials
+})
+
+
+document.querySelector("#answer5").innerHTML = `The items with 8 or more materials are ${newmaterial} with the lengths of, ${newnumberofitems}, and made of ${newmadeof}.`
 
 /* <h4>6. How many items were made by their sellers?</h4>
       <pre id="answer6">Answer 6 Goes Here</pre> */
